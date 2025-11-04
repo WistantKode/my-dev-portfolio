@@ -2,6 +2,7 @@ import Layout from "@/components/layout/layout";
 import HeroSection from "@/components/home/hero-section";
 import AboutSection from "@/components/home/about-section";
 import ServicesSection from "@/components/home/services-section";
+import AboutMe from "@/components/AboutMe.tsx";
 
 const Home = () => {
     return (
@@ -10,7 +11,7 @@ const Home = () => {
             description="Portfolio de Modjo victor, développeur web, mobile, desktop spécialisé dans la création de solutions digitales innovantes et performantes."
             keywords="développeur web, dévellopeur backend, Java, React, développement web, portfolio, Modjo Victor, solutions digitales">
             <HeroSection/>
-
+            <AboutMe/>
             <ServicesSection/>
         </Layout>
     );
