@@ -192,7 +192,7 @@ const AboutMe = () => {
                         {/*        size="lg"*/}
                         {/*        className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"*/}
                         {/*    >*/}
-                        {/*        <a href="/contact">Démarrer un Projet</a>*/}
+                        {/*        <a href="/contact">Démarrer un Projects</a>*/}
                         {/*    </Button>*/}
                         {/*</div>*/}
                     </div>

@@ -3,6 +3,7 @@ import HeroSection from "@/components/home/HeroSection.tsx";
 import AboutSection from "@/components/home/AboutSection.tsx";
 import ServicesSection from "@/components/home/ServicesSection.tsx";
 import AboutMe from "@/components/AboutMe.tsx";
+import MyExperience from "@/components/MyExperience.tsx";
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <HeroSection/>
             <AboutMe/>
             <ServicesSection/>
+            <MyExperience/>
         </Layout>
     );
 };

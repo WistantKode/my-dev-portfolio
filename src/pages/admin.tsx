@@ -203,7 +203,7 @@ const AdminDashboard = () => {
         });
         toast({
           title: "Succès",
-          description: "Projet mis à jour avec succès.",
+          description: "Projects mis à jour avec succès.",
         });
       } else {
         // Create new doc
@@ -258,7 +258,7 @@ const AdminDashboard = () => {
       await deleteDoc(doc(db, "project", id));
       toast({
         title: "Succès",
-        description: "Projet supprimé.",
+        description: "Projects supprimé.",
       });
     } catch (err) {
       console.error("handleProjectDelete error:", err);
