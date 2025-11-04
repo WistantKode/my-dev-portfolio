@@ -136,7 +136,7 @@ const HeroSection = () => {
                         <div
                             className="hidden md:block relative w-80 h-80 md:w-96 md:h-96 bg-gradient-card rounded-full overflow-hidden shadow-card border-4 border-border-light">
                             <img
-                                src={"/me.jpeg"}
+                                src='public/me.png'
                                 alt="Modjo victor - Dévellopeur backend & solution numérique"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
@@ -148,8 +148,8 @@ const HeroSection = () => {
                             {/* Name badge */}
                             <div
                                 className="absolute bottom-6 right-6 bg-background-card/90 backdrop-blur-sm rounded-lg px-4 py-2 border border-border-light">
-                                <p className="text-text-primary font-semibold">Modjo victor</p>
-                                <p className="text-primary text-sm">Web Developer</p>
+                                <p className="text-text-primary font-semibold">Wistant Kode</p>
+                                <p className="text-primary text-sm">Software engeenier student</p>
                             </div>
                         </div>
                     </div>
