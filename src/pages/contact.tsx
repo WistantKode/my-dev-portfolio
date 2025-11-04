@@ -88,14 +88,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "yvankamsu88@gmail.com",
-      link: "mailto:yvankamsu88@gmail.com",
+      value: "wistantkode@protonmail.com",
+      link: "mailto:wistantkode@protonmail.com",
     },
     {
       icon: Phone,
       title: "Téléphone",
-      value: "+237 651 727 673",
-      link: "https://wa.me/237651727673",
+      value: "+237 697 135 341",
+      link: "https://wa.me/+237697135341",
     },
     {
       icon: MapPin,
