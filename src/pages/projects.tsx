@@ -9,7 +9,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, Eye } from "lucide-react";
 import { projectsData } from "@/lib/projectsData";
 
 export default function Projects() {
@@ -53,7 +53,7 @@ export default function Projects() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-gradient-card border-border-light hover:border-primary/50 transition-smooth shadow-card hover:shadow-glow group h-full">
+                <Card className="bg-gradient-card border-border-light hover:border-primary/50 transition-smooth shadow-card hover:shadow-glow group h-full flex flex-col">
                   <CardHeader>
                     {project.imageUrl && (
                       <div className="w-full h-40 rounded-xl overflow-hidden mb-4 group-hover:scale-[1.02] transition-transform shadow-primary">
@@ -72,19 +72,39 @@ export default function Projects() {
                     </p>
                   </CardHeader>
 
-                  <CardContent>
-                    <div className="space-y-3 mb-6 title1">
-                      {project.tech?.map((tech, idx) => (
-                        <div key={idx} className="flex items-center gap-3">
-                          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                          <span className="text-text-secondary text-sm">
-                            {tech}
-                          </span>
-                        </div>
-                      ))}
+                  <CardContent className="flex flex-col flex-grow">
+                    <div className="space-y-3 mb-6 title1 flex-grow">
+                      {project.tech?.map((tech, idx) => {
+                        const IconComponent = tech.icon; // Directly get the component
+                        return (
+                          <div key={idx} className="flex items-center gap-3">
+                            <span className="text-primary">
+                              <IconComponent />
+                            </span>
+                            <span className="text-text-secondary text-sm">
+                              {tech.name}
+                            </span>
+                          </div>
+                        );
+                      })}
                     </div>
 
-                    <div className="border-t border-border pt-4">
+                    <div className="border-t border-border pt-4 mt-auto flex flex-col space-y-2">
+                      {project.liveUrl && (
+                        <motion.a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="w-full group/btn border-border-light hover:border-primary hover:bg-primary/10"
+                          >
+                            Voir le site
+                            <Eye className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                          </Button>
+                        </motion.a>
+                      )}
                       {project.repogit && (
                         <motion.a
                           href={project.repogit}
