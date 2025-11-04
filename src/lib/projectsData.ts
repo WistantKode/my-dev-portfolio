@@ -7,6 +7,7 @@ export const projectsData: Project[] = [
     id: "1",
     title: "Mon Premier Projet",
     description: "Ceci est la description de mon premier projet.",
+    category: "web",
     tech: [
       { name: "React", icon: FaReact },
       { name: "TypeScript", icon: SiTypescript },
@@ -20,6 +21,7 @@ export const projectsData: Project[] = [
     id: "2",
     title: "Mon Deuxième Projet",
     description: "Ceci est la description de mon deuxième projet.",
+    category: "backend",
     tech: [
       { name: "Java", icon: FaJava },
       { name: "Spring Boot", icon: SiSpring },
