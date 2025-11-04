@@ -219,7 +219,7 @@ const Services = () => {
           </div>
 
           {/* Technologies Section */}
-            <MyStack />
+          <MyStack />
 
           {/* CTA Section */}
           <div className="text-center bg-gradient-card rounded-2xl p-12 border border-border-light shadow-card">
