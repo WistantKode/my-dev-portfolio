@@ -6,6 +6,7 @@ import AboutMe from "@/components/AboutMe.tsx";
 import MyExperience from "@/components/MyExperience.tsx";
 import MyStack from "@/components/MyStack.tsx";
 import CTA from "@/components/CTA.tsx";
+import ContactForm from "@/components/ContactForm.tsx";
 // import {CallToAction} from "@/components/CallToAction.tsx";
 
 const Home = () => {
@@ -19,7 +20,8 @@ const Home = () => {
             <ServicesSection/>
             <MyStack />
             <MyExperience/>
-            <CTA/>
+            <ContactForm/>
+            {/*<CTA/>*/}
             {/*<div>*/}
             {/*    <CallToAction/>*/}
             {/*</div>*/}

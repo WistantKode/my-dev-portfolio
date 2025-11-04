@@ -299,7 +299,7 @@ const Contact = () => {
                     className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
                   >
                     <a
-                      href="https://wa.me/237651727673"
+                      href="https://wa.me/+237697135341"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -314,7 +314,7 @@ const Contact = () => {
                     size="lg"
                     className="w-full justify-start border-border-light hover:border-primary hover:bg-primary/10"
                   >
-                    <a href="mailto:yvankamsu88@gmail.com">
+                    <a href="mailto:wistantkode@protonmail.com">
                       <Mail className="mr-3 w-5 h-5" />
                       Envoyer un email
                     </a>
