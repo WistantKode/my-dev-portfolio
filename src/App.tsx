@@ -30,7 +30,7 @@ const App = () => (
                     <Route path="/admin_modjo" element={<AdminDashboard/>}/>
                     <Route path="/projet" element={<Projet/>}/>
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                    {/* //<Route path="*" element={<NotFound />} /> */}
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         </TooltipProvider>

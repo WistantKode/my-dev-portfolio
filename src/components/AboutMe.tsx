@@ -115,7 +115,7 @@ const AboutMe = () => {
                                     className="border-border-light hover:border-primary hover:bg-primary/10"
                                 >
                                     <a
-                                        href="public/cv/cv%20-%20wistant.pdf"
+                                        href="/cv/cv%20-%20wistant.pdf"
                                         download
                                     >
                                         <Download className="mr-2 w-5 h-5" />
@@ -127,62 +127,61 @@ const AboutMe = () => {
                     </div>
 
                     {/* Skills Section */}
-                    <div className="mb-20 flex justify-center flex-col">
-                        <h3 className="text-3xl font-bold text-text-primary text-center mb-12 title3">
-                            Mes Compétences
-                        </h3>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {skills.map((skill, index) => {
-                                const Icon = skill.icon;
-                                return (
-                                    <Card
-                                        key={index}
-                                        className="bg-gradient-card border-border-light hover:border-primary/50 transition-smooth shadow-card hover:shadow-glow group"
-                                    >
-                                        <CardContent className="p-6 text-center">
-                                            <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-primary">
-                                                <Icon className="w-8 h-8 text-primary-foreground" />
-                                            </div>
-                                            <h4 className="text-lg font-semibold text-text-primary mb-3 title3">
-                                                {skill.name}
-                                            </h4>
+                    {/*<div className="mb-20 flex justify-center flex-col">*/}
+                    {/*    <h3 className="text-3xl font-bold text-text-primary text-center mb-12 title3">*/}
+                    {/*        Mes Compétences*/}
+                    {/*    </h3>*/}
+                    {/*    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">*/}
+                    {/*        {skills.map((skill, index) => {*/}
+                    {/*            const Icon = skill.icon;*/}
+                    {/*            return (*/}
+                    {/*                <Card*/}
+                    {/*                    key={index}*/}
+                    {/*                    className="bg-gradient-card border-border-light hover:border-primary/50 transition-smooth shadow-card hover:shadow-glow group"*/}
+                    {/*                >*/}
+                    {/*                    <CardContent className="p-6 text-center">*/}
+                    {/*                        <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-primary">*/}
+                    {/*                            <Icon className="w-8 h-8 text-primary-foreground" />*/}
+                    {/*                        </div>*/}
+                    {/*                        <h4 className="text-lg font-semibold text-text-primary mb-3 title3">*/}
+                    {/*                            {skill.name}*/}
+                    {/*                        </h4>*/}
 
-                                            {/* Progress bar */}
-                                            <div className="w-full bg-secondary rounded-full h-2 mb-2">
-                                                <div
-                                                    className="bg-gradient-primary h-2 rounded-full transition-all duration-1000 ease-out"
-                                                    style={{ width: `${skill.level}%` }}
-                                                />
-                                            </div>
-                                            <span className="text-text-secondary text-sm">
-                        {skill.level}%
-                      </span>
-                                        </CardContent>
-                                    </Card>
-                                );
-                            })}
-                        </div>
-                    </div>
+                    {/*                        /!* Progress bar *!/*/}
+                    {/*                        <div className="w-full bg-secondary rounded-full h-2 mb-2">*/}
+                    {/*                            <div*/}
+                    {/*                                className="bg-gradient-primary h-2 rounded-full transition-all duration-1000 ease-out"*/}
+                    {/*                                style={{ width: `${skill.level}%` }}*/}
+                    {/*                            />*/}
+                    {/*                        </div>*/}
+                    {/*                        <span className="text-text-secondary text-sm">*/}
+                    {/*    {skill.level}%*/}
+                    {/*  </span>*/}
+                    {/*                    </CardContent>*/}
+                    {/*                </Card>*/}
+                    {/*            );*/}
+                    {/*        })}*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
 
-
-                    {/* Contact CTA */}
-                    <div className="text-center bg-gradient-card rounded-2xl p-12 border border-border-light shadow-card">
-                        <h3 className="text-3xl font-bold text-text-primary mb-4 title3">
-                            Travaillons Ensemble
-                        </h3>
-                        <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto title1">
-                            Vous avez un projet en tête ? Je serais ravi de discuter avec vous
-                            de vos besoins et de voir comment je peux vous aider à les
-                            concrétiser.
-                        </p>
-                        <Button
-                            asChild
-                            size="lg"
-                            className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"
-                        >
-                            <a href="/contact">Démarrer un Projet</a>
-                        </Button>
-                    </div>
+                    {/*/!* Contact CTA *!/*/}
+                    {/*<div className="text-center bg-gradient-card rounded-2xl p-12 border border-border-light shadow-card">*/}
+                    {/*    <h3 className="text-3xl font-bold text-text-primary mb-4 title3">*/}
+                    {/*        Travaillons Ensemble*/}
+                    {/*    </h3>*/}
+                    {/*    <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto title1">*/}
+                    {/*        Vous avez un projet en tête ? Je serais ravi de discuter avec vous*/}
+                    {/*        de vos besoins et de voir comment je peux vous aider à les*/}
+                    {/*        concrétiser.*/}
+                    {/*    </p>*/}
+                    {/*    <Button*/}
+                    {/*        asChild*/}
+                    {/*        size="lg"*/}
+                    {/*        className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"*/}
+                    {/*    >*/}
+                    {/*        <a href="/contact">Démarrer un Projet</a>*/}
+                    {/*    </Button>*/}
+                    {/*</div>*/}
                 </div>
             </section>
         </Layout>
