@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/layout";
 import HeroSection from "@/components/home/hero-section";
-import AboutSection from "@/components/home/about-section";
-import ServicesSection from "@/components/home/services-section";
+import AboutSection from "@/components/home/AboutSection.tsx";
+import ServicesSection from "@/components/home/ServicesSection.tsx";
 import AboutMe from "@/components/AboutMe.tsx";
 
 const Home = () => {

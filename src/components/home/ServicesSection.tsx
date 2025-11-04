@@ -35,11 +35,6 @@ const ServicesSection = () => {
       description:
         "Full-stack web development using cutting-edge technologies to build scalable and maintainable applications.",
     },
-      {
-          icon: Heart,
-          title: "SEO & search",
-          description: "Globe",
-      },
     {
       icon: Monitor,
       title: "Desktop Development",
@@ -52,11 +47,16 @@ const ServicesSection = () => {
       description:
         "Creating responsive mobile applications with modern frameworks, ensuring optimal performance across all devices.",
     },
-    // {
-    //   icon: Palette,
-    //   title: "UI/UX Design",
-    //   description: "I create intuitive and aesthetically pleasing interfaces, providing a smooth and engaging user experience for your projects."
-    // },
+    {
+      icon: Palette,
+      title: "UI/UX Design",
+      description: "I create intuitive and aesthetically pleasing interfaces, providing a smooth and engaging user experience for your projects."
+    },
+    //   {
+    //       icon: Heart,
+    //       title: "SEO & search",
+    //       description: "Globe",
+    //   },
   ];
 
   return (
