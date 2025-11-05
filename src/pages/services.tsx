@@ -23,103 +23,103 @@ const Services = () => {
     const services = [
         {
             icon: Database,
-            title: "Backend & APIs",
+            title: "Backend Systems & APIs",
             description:
-                "Mise en place de systèmes robustes avec NestJS et architectures microservices.",
+                "Implementing robust and scalable systems using NestJS and resilient microservice architectures.",
             features: [
-                "APIs REST sécurisées",
-                "Authentification et gestion utilisateurs (JWT)",
-                "Microservices",
-                "Architecture évolutive",
+                "Secure REST/GraphQL APIs",
+                "Authentication & User Management (JWT, OAuth)",
+                "Microservices deployment",
+                "Scalable system architecture",
             ],
-            price: "Solutions personnalisées selon vos besoins métier",
+            price: "Custom solutions tailored to business requirements",
         },
         {
             icon: Code,
-            title: "Développement Web",
+            title: "Full-Stack Web Development",
             description:
-                "Création d'applications web modernes et performantes avec les dernières technologies.",
+                "Building modern, high-performance web applications with cutting-edge technologies.",
             features: [
-                "Sites web responsive",
-                "Applications web",
-                "E-commerce",
-                "Intégration API",
-                "Tableaux de bord administratifs",
+                "Responsive web platforms",
+                "Progressive Web Apps (PWAs)",
+                "E-commerce solutions",
+                "API integration & orchestration",
+                "Administrative dashboards",
             ],
-            price: "Tarifs adaptés selon vos besoins – devis gratuit",
+            price: "Pricing adapted to scope – Free quote provided",
         },
         {
             icon: Smartphone,
-            title: "Applications Mobile",
+            title: "Cross-Platform Mobile Apps",
             description:
-                "Développement d'applications mobiles cross-platform avec React Native.",
+                "Developing cross-platform mobile applications that deliver a near-native experience using React Native.",
             features: [
-                "Applications iOS/Android",
-                "Interface native",
-                "Performance optimisée",
+                "iOS/Android application development",
+                "Optimized native-like interface",
+                "Performance and resource optimization",
             ],
-            price: "Tarifs adaptés selon vos besoins",
+            price: "Pricing adapted to scope",
         },
         {
             icon: Globe,
-            title: "Optimisation & SEO",
+            title: "Optimization & Performance",
             description:
-                "Amélioration des performances et du référencement de votre site web.",
+                "Enhancing website performance, stability, and search engine ranking.",
             features: [
-                "Optimisation SEO",
-                "Performance web",
-                "Analytics",
-                "Maintenance",
+                "Technical SEO optimization",
+                "Web performance metrics (Core Web Vitals)",
+                "Analytics implementation & reporting",
+                "Ongoing maintenance & monitoring",
             ],
-            price: "",
+            price: "", // Price intentionally left empty for this service type
         },
         {
             icon: Monitor,
-            title: "Applications Desktop",
+            title: "Custom Desktop Applications",
             description:
-                "Développement de logiciels sur mesure avec JavaFX et intégration base de données.",
+                "Developing tailored desktop software solutions using JavaFX with robust database integration.",
             features: [
-                "Interfaces modernes et intuitives",
-                "Connexion aux base de données",
-                "Gestion de données et rapports",
-                "Solutions adaptées aux PME",
+                "Modern, intuitive interfaces",
+                "Secure database connectivity",
+                "Data management and reporting features",
+                "Solutions built for SMEs",
             ],
-            price: "Chaque projet est étudié selon sa complexité",
+            price: "Each project is quoted based on technical complexity",
         },
     ];
 
     const processSteps = [
         {
             step: "01",
-            title: "Consultation",
+            title: "Consultation & Scope",
             description:
-                "Discussion de vos besoins et objectifs pour définir le projet ensemble.",
+                "Defining requirements and project objectives to establish a clear roadmap.",
         },
         {
             step: "02",
-            title: "Conception",
+            title: "Architecture & Design",
             description:
-                "Création des maquettes et planification de l'architecture technique.",
+                "Creating blueprints, wireframes, and planning the technical system architecture.",
         },
         {
             step: "03",
-            title: "Développement",
+            title: "Development & Testing",
             description:
-                "Réalisation du projet avec des points de validation réguliers.",
+                "System implementation with structured coding and regular validation points.",
         },
         {
             step: "04",
-            title: "Livraison",
+            title: "Deployment & Support",
             description:
-                "Déploiement, formation et accompagnement pour la mise en ligne.",
+                "Final deployment, necessary training, and post-launch maintenance support.",
         },
     ];
 
     return (
         <Layout
-            title="Services - Développement Web & IT student | Modjo Victor"
-            description="Découvrez mes services de développement web, applications mobiles, Desktop et solutions digitales personnalisées."
-            keywords="services, développement web, developpement Backend, applications mobiles, application desktop, backend, API, branding, SEO, Modjo Victor"
+            title="Services - Wistant - Backend Development & System Architecture | Wistant"
+            description="Explore my services in robust backend system development, custom APIs, mobile/desktop applications, and complete digital solutions."
+            keywords="services, backend development, system architecture, custom API, NestJS, microservices, mobile applications, desktop software, web performance, Wistant"
         >
             <section className="py-20 bg-background">
                 <div className="container mx-auto px-4">
@@ -129,11 +129,10 @@ const Services = () => {
                     <AppearOnScroll>
                         <div className="text-center mb-16">
                             <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 title3">
-                                Mes Services
+                                My Expertise Domains
                             </h1>
                             <p className="text-text-secondary text-lg max-w-2xl mx-auto title1">
-                                Solutions digitales complètes pour donner vie à vos projets avec
-                                expertise et créativité.
+                                Comprehensive digital solutions delivered with **precision, architecture, and reliability**.
                             </p>
                         </div>
                     </AppearOnScroll>
@@ -180,7 +179,7 @@ const Services = () => {
                                                 variant="outline"
                                                 className="w-full group/btn border-border-light hover:border-primary hover:bg-primary/10"
                                             >
-                                                En savoir plus
+                                                Learn More
                                                 <ArrowRight
                                                     className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform"/>
                                             </Button>
@@ -196,38 +195,37 @@ const Services = () => {
                         <AppearOnScroll>
                             <div className="text-center mb-16">
                                 <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 title3">
-                                    Mon Processus de Travail
+                                    My Structured Workflow
                                 </h2>
                                 <p className="text-text-secondary text-lg max-w-2xl mx-auto title1">
-                                    Une approche structurée pour garantir la réussite de votre
-                                    projet.
+                                    A robust, four-step approach engineered to ensure project success.
                                 </p>
                             </div>
                         </AppearOnScroll>
 
-                       <AppearOnScroll>
-                           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                               {processSteps.map((process, index) => (
-                                   <Card
-                                       key={index}
-                                       className="bg-gradient-card border-border-light shadow-card text-center group"
-                                   >
-                                       <CardContent className="p-8">
-                                           <div
-                                               className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-primary">
+                        <AppearOnScroll>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                {processSteps.map((process, index) => (
+                                    <Card
+                                        key={index}
+                                        className="bg-gradient-card border-border-light shadow-card text-center group"
+                                    >
+                                        <CardContent className="p-8">
+                                            <div
+                                                className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-primary">
                       <span className="text-primary-foreground font-bold text-lg">
                         {process.step}
                       </span>
-                                           </div>
-                                           <h3 className="text-xl font-bold text-text-primary mb-3">
-                                               {process.title}
-                                           </h3>
-                                           <p className="text-text-secondary">{process.description}</p>
-                                       </CardContent>
-                                   </Card>
-                               ))}
-                           </div>
-                       </AppearOnScroll>
+                                            </div>
+                                            <h3 className="text-xl font-bold text-text-primary mb-3">
+                                                {process.title}
+                                            </h3>
+                                            <p className="text-text-secondary">{process.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </AppearOnScroll>
                     </div>
 
                     {/* Technologies Section */}
@@ -236,11 +234,10 @@ const Services = () => {
                     <div
                         className="text-center bg-gradient-card rounded-2xl p-12 border border-border-light shadow-card">
                         <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-                            Prêt à Démarrer Votre Projet ?
+                            Ready to Engineer Your Next Project?
                         </h2>
                         <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">
-                            Discutons de vos besoins et voyons comment je peux vous aider à
-                            concrétiser vos idées.
+                            Let’s discuss your system requirements and map out the solution that brings your ideas to fruition.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button
@@ -248,7 +245,7 @@ const Services = () => {
                                 size="lg"
                                 className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"
                             >
-                                <a href="/contact">Commencer un Projet</a>
+                                <a href="/contact">Start a Project</a>
                             </Button>
 
                             <Button
@@ -262,7 +259,7 @@ const Services = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    Discuter sur WhatsApp
+                                    Connect on WhatsApp
                                 </a>
                             </Button>
                         </div>

@@ -31,7 +31,8 @@ const ContactForm = () => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("https://formspree.io/f/xdkdqlnp", {
+            // Note: The Formspree endpoint remains the same as it's a target URL.
+            const response = await fetch("https://formspree.io/f/myzbqrro", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -41,36 +42,36 @@ const ContactForm = () => {
                     email: formData.email,
                     subject: formData.subject,
                     message: formData.message,
-                    // Optionnel : ajouter d'autres métadonnées
-                    _replyto: formData.email, // Pour que Formspree sache à qui répondre
-                    _subject: `Nouveau message de ${formData.name}: ${formData.subject}`, // Sujet personnalisé
+                    // Optional: adding custom metadata
+                    _replyto: formData.email,
+                    _subject: `New Inquiry from ${formData.name}: ${formData.subject}`,
                 }),
             });
 
             if (response.ok) {
-                // Succès
+                // Success
                 toast({
-                    title: "Message envoyé !",
+                    title: "Message Sent Successfully.",
                     description:
-                        "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
-                    variant: "default", // ou "success" selon votre config
+                        "Thank you for reaching out. I will process your inquiry and respond promptly.",
+                    variant: "default",
                 });
 
-                // Réinitialiser le formulaire
+                // Reset form state
                 setFormData({ name: "", email: "", subject: "", message: "" });
             } else {
-                // Erreur du serveur
+                // Server Error Handling
                 const errorData = await response.json();
-                throw new Error(errorData.error || "Erreur lors de l'envoi");
+                throw new Error(errorData.error || "Failed to process the request.");
             }
         } catch (error) {
-            // Gestion des erreurs
-            console.error("Erreur lors de l'envoi:", error);
+            // Error Catching
+            console.error("Transmission Error:", error);
             toast({
-                title: "Erreur d'envoi",
+                title: "Transmission Failure",
                 description:
-                    "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
-                variant: "destructive", // ou "error" selon votre config
+                    "An error occurred while sending the message. Please review the input and try again.",
+                variant: "destructive",
             });
         } finally {
             setIsSubmitting(false);
@@ -88,46 +89,45 @@ const ContactForm = () => {
     const contactInfo = [
         {
             icon: Mail,
-            title: "Email",
+            title: "Primary Email",
             value: "wistantkode@protonmail.com",
             link: "mailto:wistantkode@protonmail.com",
         },
         {
             icon: Phone,
-            title: "Téléphone",
+            title: "Direct Line (WhatsApp)",
             value: "+237 697 135 341",
             link: "https://wa.me/+237697135341",
         },
         {
             icon: MapPin,
-            title: "Localisation",
-            value: "Yaoundé, Cameroun",
+            title: "Operating Base",
+            value: "Yaoundé, Cameroon",
             link: null,
         },
         {
             icon: Clock,
-            title: "Disponibilité",
-            value: "Lun - Ven, 8h - 18h",
+            title: "Standard Availability",
+            value: "Mon - Fri, 8 AM - 6 PM (WAT)",
             link: null,
         },
     ];
 
     return (
         <Layout
-            title="Contact - Modjo Victor | Développeur Web & Backend Specialist"
-            description="Contactez Modjo victor pour vos projets de développement web et design UI/UX. Discutons de vos besoins et concrétisons vos idées ensemble."
-            keywords="contact, Modjo Victor, développeur web, Backend, projet, devis, Yaoundé, Cameroun"
+            title="Contact - Wistant | Backend System Specialist & Web Architect"
+            description="Engage Wistant for robust web development, system architecture, and UI/UX design projects. Let's discuss your requirements and engineer your vision into reality."
+            keywords="contact, Wistant, web developer, Backend, system architecture, project inquiry, quote, Yaoundé, Cameroon"
         >
             <section className="py-20 bg-background min-h-screen">
                 <div className="container mx-auto px-4">
-                    {/* Hero Section */}
+                    {/* Hero Section - Confident Tone */}
                     <div className="text-center mb-16">
                         <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6">
-                            Contactez-Moi
+                            Initiate Contact
                         </h1>
                         <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                            Vous avez un projet en tête ? Je serais ravi de discuter avec vous
-                            et de voir comment je peux vous aider.
+                            Do you have a project requiring a solid **Backend architecture**? Let's discuss the technical specifications and build a reliable system together.
                         </p>
                     </div>
 
@@ -136,11 +136,10 @@ const ContactForm = () => {
                         <Card className="bg-gradient-card border-border-light shadow-card">
                             <CardHeader>
                                 <CardTitle className="text-2xl text-text-primary">
-                                    Envoyez-moi un message
+                                    Send a Direct Message
                                 </CardTitle>
                                 <p className="text-text-secondary">
-                                    Remplissez le formulaire ci-dessous et je vous répondrai
-                                    rapidement.
+                                    Complete the fields below. All inquiries are treated with priority and a structured response is guaranteed.
                                 </p>
                             </CardHeader>
 
@@ -151,7 +150,7 @@ const ContactForm = () => {
                                             <AppearOnScroll>
                                                 <div>
                                                     <label className="block text-text-primary text-sm font-medium mb-2">
-                                                        Nom complet *
+                                                        Full Name *
                                                     </label>
                                                     <Input
                                                         name="name"
@@ -159,7 +158,7 @@ const ContactForm = () => {
                                                         required
                                                         value={formData.name}
                                                         onChange={handleChange}
-                                                        placeholder="Votre nom"
+                                                        placeholder="Your Name/Company"
                                                         className="bg-input border-border-light"
                                                     />
                                                 </div>
@@ -176,7 +175,7 @@ const ContactForm = () => {
                                                         required
                                                         value={formData.email}
                                                         onChange={handleChange}
-                                                        placeholder="votre@email.com"
+                                                        placeholder="your@email.com"
                                                         className="bg-input border-border-light"
                                                     />
                                                 </div>
@@ -186,7 +185,7 @@ const ContactForm = () => {
                                         <AppearOnScroll>
                                             <div>
                                                 <label className="block text-text-primary text-sm font-medium mb-2">
-                                                    Sujet *
+                                                    Subject *
                                                 </label>
                                                 <Input
                                                     name="subject"
@@ -194,28 +193,28 @@ const ContactForm = () => {
                                                     required
                                                     value={formData.subject}
                                                     onChange={handleChange}
-                                                    placeholder="Sujet de votre message"
+                                                    placeholder="Project or Inquiry Subject"
                                                     className="bg-input border-border-light"
                                                 />
                                             </div>
                                         </AppearOnScroll>
 
-                                       <AppearOnScroll>
-                                           <div>
-                                               <label className="block text-text-primary text-sm font-medium mb-2">
-                                                   Message *
-                                               </label>
-                                               <Textarea
-                                                   name="message"
-                                                   required
-                                                   value={formData.message}
-                                                   onChange={handleChange}
-                                                   placeholder="Décrivez votre projet ou votre demande..."
-                                                   rows={6}
-                                                   className="bg-input border-border-light"
-                                               />
-                                           </div>
-                                       </AppearOnScroll>
+                                        <AppearOnScroll>
+                                            <div>
+                                                <label className="block text-text-primary text-sm font-medium mb-2">
+                                                    System Requirements / Message *
+                                                </label>
+                                                <Textarea
+                                                    name="message"
+                                                    required
+                                                    value={formData.message}
+                                                    onChange={handleChange}
+                                                    placeholder="Outline your project scope or request..."
+                                                    rows={6}
+                                                    className="bg-input border-border-light"
+                                                />
+                                            </div>
+                                        </AppearOnScroll>
 
                                         <Button
                                             type="submit"
@@ -224,11 +223,11 @@ const ContactForm = () => {
                                             className="w-full bg-gradient-primary hover:opacity-90 border-0 shadow-primary hover:shadow-glow transition-smooth"
                                         >
                                             {isSubmitting ? (
-                                                "Envoi en cours..."
+                                                "Processing Request..."
                                             ) : (
                                                 <>
                                                     <Send className="mr-2 w-5 h-5" />
-                                                    Envoyer le message
+                                                    Submit Message
                                                 </>
                                             )}
                                         </Button>
@@ -237,15 +236,14 @@ const ContactForm = () => {
                             </CardContent>
                         </Card>
 
-                        {/* Contact Info */}
+                        {/* Contact Info - Confident Tone */}
                         <div className="space-y-8">
                             <div>
                                 <h2 className="text-3xl font-bold text-text-primary mb-6">
-                                    Informations de Contact
+                                    Contact Protocols
                                 </h2>
                                 <p className="text-text-secondary text-lg mb-8">
-                                    N'hésitez pas à me contacter directement. Je réponds
-                                    généralement dans les 24 heures.
+                                    Direct engagement is welcome. Standard response latency is within 24 hours, often sooner.
                                 </p>
                             </div>
 
@@ -303,7 +301,7 @@ const ContactForm = () => {
                             <AppearOnScroll>
                                 <div className="space-y-4">
                                     <h3 className="text-xl font-bold text-text-primary">
-                                        Actions Rapides
+                                        Immediate Channels
                                     </h3>
 
                                     <div className="space-y-3">
@@ -319,7 +317,7 @@ const ContactForm = () => {
                                                 rel="noopener noreferrer"
                                             >
                                                 <MessageCircle className="mr-3 w-5 h-5" />
-                                                Discuter sur WhatsApp
+                                                Connect via WhatsApp
                                             </a>
                                         </Button>
 
@@ -331,7 +329,7 @@ const ContactForm = () => {
                                         >
                                             <a href="mailto:wistantkode@protonmail.com">
                                                 <Mail className="mr-3 w-5 h-5" />
-                                                Envoyer un email
+                                                Send Direct Email
                                             </a>
                                         </Button>
 
@@ -343,49 +341,46 @@ const ContactForm = () => {
                                         >
                                             <a href="/services">
                                                 <Globe className="mr-3 w-5 h-5" />
-                                                Voir mes services
+                                                Review Services Offered
                                             </a>
                                         </Button>
                                     </div>
                                 </div>
                             </AppearOnScroll>
 
-                            {/* FAQ Section */}
+                            {/* FAQ Section - Confident Tone */}
                             <AppearOnScroll>
                                 <Card className="bg-gradient-card border-border-light shadow-card">
                                     <CardHeader>
                                         <CardTitle className="text-xl text-text-primary title3">
-                                            Questions Fréquentes
+                                            Engagement Protocols (FAQ)
                                         </CardTitle>
                                     </CardHeader>
                                     <CardContent className="space-y-4">
                                         <div>
                                             <h4 className="text-text-primary font-medium mb-1 title2">
-                                                Quel est votre délai de réponse ?
+                                                What is your response latency?
                                             </h4>
                                             <p className="text-text-secondary text-sm title1">
-                                                Je réponds généralement dans les 24 heures, souvent plus
-                                                rapidement.
+                                                I guarantee a response within 24 hours. Efficient communication is a priority.
                                             </p>
                                         </div>
 
                                         <div>
                                             <h4 className="text-text-primary font-medium mb-1">
-                                                Proposez-vous des devis gratuits ?
+                                                Do you provide initial project assessments?
                                             </h4>
                                             <p className="text-text-secondary text-sm">
-                                                Oui, je propose un devis gratuit après discussion de vos
-                                                besoins.
+                                                Yes, a complimentary quote is provided after a detailed discussion of your technical requirements.
                                             </p>
                                         </div>
 
                                         <div>
                                             <h4 className="text-text-primary font-medium mb-1">
-                                                Travaillez-vous à distance ?
+                                                Do you handle remote projects?
                                             </h4>
                                             <p className="text-text-secondary text-sm">
-                                                Oui, je travaille avec des clients du monde entier en
-                                                remote.
+                                                Absolutely. I operate with clients globally, ensuring seamless remote delivery and collaboration.
                                             </p>
                                         </div>
                                     </CardContent>

@@ -68,9 +68,9 @@ const Blog = () => {
 
   return (
     <Layout
-      title="Blog - Modjo victor | Articles sur le développement web et Architecture logicielle"
-      description="Découvrez les derniers articles de Modjo victor sur le développement web, l'architecture logiciel, et les technologies modernes."
-      keywords="blog, développement web, architecture logiciel, articles techniques, tutoriels, Modjo Victor"
+        title="Blog - Wistant | Articles on Web Development and Software Architecture"
+        description="Explore Wistant's latest articles on web development, software architecture, and modern technologies."
+        keywords="blog, web development, software architecture, technical articles, tutorials, Wistant"
     >
       <section className="py-20 bg-background min-h-screen">
         <div className="container mx-auto px-4">

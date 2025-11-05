@@ -11,7 +11,7 @@ import Blog from "./pages/blog";
 import Contact from "./pages/contact";
 import AdminDashboard from "./pages/admin";
 import Projects from "./pages/projects.tsx";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/not-found.tsx";
 
 const queryClient = new QueryClient();
 

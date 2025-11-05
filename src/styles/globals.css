@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Thème Sombre (Dark Mode) - Vos couleurs actuelles */
+  :root {
+    --background: 222 47% 11%; /* hsl(222, 47%, 11%) */
+    --foreground: 210 40% 98%; /* hsl(210, 40%, 98%) */
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 213 94% 68%;
+  }
+
+  /* Thème Clair (Light Mode) - Nouvelles couleurs */
+  .light {
+    --background: 0 0% 98%; /* hsl(0, 0%, 98%) - Un blanc légèrement cassé */
+    --foreground: 222 47% 11%; /* Le noir du thème sombre */
+
+    --card: 0 0% 100%; /* Cartes blanches */
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 11%; /* Le noir comme couleur primaire */
+    --primary-foreground: 0 0% 98%; /* Le blanc cassé pour le texte sur la couleur primaire */
+
+    --secondary: 210 40% 96.1%; /* Un gris très clair */
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%; /* Un gris plus doux pour le texte muet */
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%; /* Bordures et inputs gris clair */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222 47% 11%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

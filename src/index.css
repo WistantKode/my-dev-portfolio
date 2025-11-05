@@ -1,74 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Portfolio Design System - Inspired by Jumael Kamga's design */
 
-@layer base { 
+@layer base {
   :root {
     /* Dark theme base colors */
     --background: 240 10% 6%;
     --background-alt: 240 8% 10%;
     --background-card: 240 10% 8%;
     --foreground: 0 0% 98%;
-    
+
     /* Brand colors - Green gradient theme */
     --primary: 145 65% 45%;   /* Vert vif */
     --primary-glow: 150 70% 50%;  /* Vert clair lumineux */
     --primary-dark: 140 60% 35%;  /* Vert foncé */
     --primary-foreground: 0 0% 100%;
-    
+
     /* Secondary colors */
     --secondary: 240 5% 15%;
     --secondary-foreground: 0 0% 85%;
-    
+
     /* Accent colors */
     --accent: 145 65% 45%;
     --accent-foreground: 0 0% 100%;
-    
+
     /* Text colors */
     --text-primary: 0 0% 98%;
     --text-secondary: 0 0% 70%;
     --text-muted: 0 0% 50%;
-    
+
     /* UI Elements */
     --border: 240 10% 15%;
     --border-light: 240 8% 20%;
     --input: 240 10% 12%;
     --ring: 145 65% 45%;
-    
+
     /* Card styling */
     --card: 240 10% 8%;
     --card-foreground: 0 0% 98%;
-    
+
     /* Popover styling */
     --popover: 240 10% 8%;
     --popover-foreground: 0 0% 98%;
-    
+
     /* Muted styling */
     --muted: 240 8% 12%;
     --muted-foreground: 0 0% 60%;
-    
+
     /* Destructive styling */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(240 15% 12%) 50%, hsl(var(--background)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(240 12% 10%));
-    
+
     /* Shadows */
     --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
     --shadow-card: 0 8px 25px -5px hsl(0 0% 0% / 0.3);
-    
+
     /* Border radius */
     --radius: 0.75rem;
     --radius-sm: 0.5rem;
     --radius-lg: 1rem;
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -76,8 +77,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 6px;            
-  height: 6px;            
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -97,34 +98,9 @@
 
 
 /*custom police font*/
-@font-face {
-  font-family: "fontPoppins";
-  src: url(/font/Poppins/Poppins-Medium.ttf);
-}
-@font-face {
-  font-family: "fontLato";
-  src: url(/font/Lato/Lato-Regular.ttf);
-}
-@font-face {
-  font-family: "fontMontserrat";
-  src: url(/font/Montserrat/static/Montserrat-Regular.ttf);
-}
+/* Removed custom font-face rules for Poppins, Lato, Montserrat */
+/* Removed specific font-family applications for nav, title1, title2, title3 */
 
-nav {
-  font-family: "fontPoppins";
-}
-
-.title1 {
-  font-family: "fontMontserrat";
-}
-
-.title2 {
-  font-family: "fontLato";
-}
-
-.title3 {
-  font-family: "fontPoppins";
-}
 /* Custom animations */
 @keyframes fadeInUp {
   from {
@@ -206,6 +182,7 @@ nav {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans; /* Apply Outfit as default font */
+    font-family: 'Outfit', sans-serif;
   }
 }
