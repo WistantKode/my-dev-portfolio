@@ -6,10 +6,9 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 // --- Data Configuration --- //
-// La structure de données typée que vous aimez, facile à maintenir.
 const navItems = [
   { href: "/", label: "Home", icon: Home },
-  { href: "/projects", label: "Projets", icon: Code },
+  { href: "/projects", label: "Projects", icon: Code },
   { href: "/services", label: "Services", icon: Briefcase },
   { href: "/blog", label: "Blog", icon: BookOpen },
   { href: "/contact", label: "Contact", icon: Mail },
@@ -21,7 +20,6 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // Gérer le changement de style au défilement
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -30,7 +28,6 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fermer le menu mobile lors du changement de route
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
