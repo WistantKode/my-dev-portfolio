@@ -7,19 +7,22 @@ import MyExperience from "@/components/MyExperience.tsx";
 import MyStack from "@/components/MyStack.tsx";
 import CTA from "@/components/CTA.tsx";
 import ContactForm from "@/components/ContactForm.tsx";
-// import {CallToAction} from "@/components/CallToAction.tsx";
+import ClientTestimonials from "@/components/home/ClientTestimonials.tsx"; // Import the new component
 
 const Home = () => {
     return (
         <Layout
-            title="Modjo victor- Développeur Web Java React & IT student"
-            description="Portfolio de Modjo victor, développeur web, mobile, desktop spécialisé dans la création de solutions digitales innovantes et performantes."
-            keywords="développeur web, dévellopeur backend, Java, React, développement web, portfolio, Modjo Victor, solutions digitales">
+            title="Wistant Kode - DevSecOps Practicer | Software Engineering Student"
+            description="Wistant Kode's portfolio: a passionate Software Engineering Student and DevSecOps Practicer. Specializing in Java/Spring Boot, React/Next.js, Cloud, Automation, and Cybersecurity. Building innovative and scalable digital solutions."
+            keywords="Wistant Kode, DevSecOps, Software Engineer, Java, Spring Boot, React, Next.js, Cloud, Automation, Cybersecurity, Portfolio, Web Development, Backend Development, Africa Tech"
+            lang="en"
+        >
             <HeroSection/>
             <AboutMe/>
             <ServicesSection/>
             <MyStack />
             <MyExperience/>
+            <ClientTestimonials /> {/* Integrate the new component here */}
             <ContactForm/>
             {/*<CTA/>*/}
             {/*<div>*/}
