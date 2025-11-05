@@ -32,7 +32,7 @@ const ContactForm = () => {
 
         try {
             // Note: The Formspree endpoint remains the same as it's a target URL.
-            const response = await fetch("https://formspree.io/f/xdkdqlnp", {
+            const response = await fetch("https://formspree.io/f/myzbqrro", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

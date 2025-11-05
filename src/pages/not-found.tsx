@@ -41,7 +41,7 @@ const NotFound = () => {
             transition={{ delay: 0.3, duration: 0.5, type: "spring", stiffness: 100 }}
             className="text-8xl md:text-9xl font-extrabold text-primary mb-4"
           >
-            404
+            error 404
           </motion.h1>
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
             Resource Not Found

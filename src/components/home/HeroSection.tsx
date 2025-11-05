@@ -144,11 +144,11 @@ const HeroSection = () => {
                     <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-tight tracking-tighter mb-6 title3">
                         <TypeAnimation
                             sequence={[
-                                'DevSecOps Practicer',
-                                1500, // wait 1.5s
-                                'Software Engineer',
-                                1500,
-                                'Cloud & Automation Expert',
+                                'Backend Developer',
+                                1000, // wait 1.5s
+                                'Software Engineer Student',
+                                1000,
+                                'DevSecOps practicer',
                                 1500,
                                 'Cybersecurity Enthusiast',
                                 1500,
