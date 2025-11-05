@@ -1,30 +1,61 @@
 import {Project} from "./projet";
 import {FaReact} from "react-icons/fa";
-import {SiCss3, SiFramework, SiHtml5, SiJavascript, SiTailwindcss, SiTypescript} from "react-icons/si";
+import {SiCss3, SiFramework, SiHtml5, SiJavascript, SiNestjs, SiTailwindcss, SiTypescript} from "react-icons/si";
+import {RiNextjsFill, RiRemixiconFill} from "react-icons/ri";
 
 // Define the base path for project images
 const PROJECT_IMAGE_BASE_PATH = "/projects img/";
 
 export const projectsData: Project[] = [
     {
-        id: "1",
-        title: "Chick Food - Modern Restaurant Frontend",
-        description: "A responsive frontend project for a fictional fried chicken restaurant. Features engaging animations and a clean, modern design, showcasing strong skills in HTML, CSS, and JavaScript. Optimized for an excellent user experience.",
+        id: "proj-shopdo",
+        title: "ShopDO - E-commerce Platform Backend",
+        description: "Developed a robust and scalable backend for an e-commerce platform, focusing on secure API design and efficient data management. Implemented core functionalities for product catalog, user authentication, and order processing.",
+        category: "backend",
+        tech: [
+            {name: "React", icon: FaReact}, // Assuming React is used for frontend part of this project
+            {name: "TypeScript", icon: SiTypescript},
+            {name: "JavaScript", icon: SiJavascript},
+            {name: "Next.js", icon: RiNextjsFill}, // Assuming Next.js is used for frontend part of this project
+        ],
+        repoGit: "https://github.com/wistantkode/ShopDO-Backend", // Placeholder, assuming a dedicated backend repo
+        liveUrl: "#", // Placeholder
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}shopdo.png`,
+    },
+    {
+        id: "proj-nestjs-auth",
+        title: "NESTJS AUTH JWT - Secure Authentication Microservice",
+        description: "Engineered a secure and efficient authentication microservice using NestJS, implementing JWT (JSON Web Tokens) for robust user authorization. Designed for seamless integration into larger application architectures.",
+        category: "backend",
+        tech: [
+            {name: "NestJS", icon: SiNestjs},
+            {name: "TypeScript", icon: SiTypescript},
+            {name: "JavaScript", icon: SiJavascript},
+        ],
+        repoGit: "https://github.com/wistantkode/nestjs-auth-jwt", // Placeholder, assuming a dedicated repo
+        liveUrl: "#", // Placeholder
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}nestjs-auth.png`,
+    },
+    {
+        id: "proj-structo",
+        title: "Structo - Modern Construction Landing Page",
+        description: "Developed a fully responsive and easily customizable landing page for a construction company. Features sections for services, projects, testimonials, and contact information, utilizing modern design principles, Google Fonts (Outfit), and Remixicon for enhanced aesthetics.",
         category: "web",
         tech: [
             {name: "HTML", icon: SiHtml5},
             {name: "CSS3", icon: SiCss3},
             {name: "JavaScript", icon: SiJavascript},
-            {name: "ScrollJS", icon: SiFramework},
+            {name: "ScrollJS", icon: SiFramework}, // Assuming SiFramework is for ScrollJS
+            {name: "RemixIcon", icon: RiRemixiconFill},
         ],
-        repoGit: "https://github.com/wistantkode/Chick-Food-Project",
-        liveUrl: "https://chick-food-project.vercel.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}projet1.png`,
+        repoGit: "https://github.com/wistantkode/Structo-Landing-Page", // Placeholder
+        liveUrl: "https://structo-landing.vercel.app/", // Placeholder
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}structo.png`,
     },
     {
-        id: "2",
-        title: "Elysian Drive - Electric Car Landing Page",
-        description: "A captivating frontend landing page for an electric car brand, featuring futuristic design and immersive animations. Demonstrates advanced skills in HTML, CSS, and JavaScript, particularly with interactive libraries.",
+        id: "proj-elysian-drive",
+        title: "Elysian Drive - Electric Car Brand Landing Page",
+        description: "Crafted a captivating frontend landing page for an electric car brand, showcasing futuristic design and immersive animations. Demonstrates advanced skills in HTML, CSS, and JavaScript, with a focus on interactive and visually rich user experiences.",
         category: "web",
         tech: [
             {name: "HTML", icon: SiHtml5},
@@ -33,12 +64,26 @@ export const projectsData: Project[] = [
         ],
         repoGit: "https://github.com/wistantkode/Elysian-Drive-Project",
         liveUrl: "https://elysian-drive-project.vercel.app/",
-        imageUrl: `${PROJECT_IMAGE_BASE_PATH}projet2.png`,
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}elysindrive.png`,
     },
     {
-        id: "3",
+        id: "proj-boomsound",
+        title: "Boomsound - Artist & DJ Showcase Website",
+        description: "Designed and developed a dynamic showcase website for artists, DJs, and creatives, enabling them to establish a strong web presence. Built with HTML, CSS, and JavaScript for a vibrant and engaging user experience.",
+        category: "web",
+        tech: [
+            {name: "HTML", icon: SiHtml5},
+            {name: "CSS3", icon: SiCss3},
+            {name: "JavaScript", icon: SiJavascript},
+        ],
+        repoGit: "https://github.com/wistantkode/Boomsound-Website", // Placeholder
+        liveUrl: "https://boomsound-showcase.vercel.app/", // Placeholder
+        imageUrl: `${PROJECT_IMAGE_BASE_PATH}boomsound.png`,
+    },
+    {
+        id: "proj-portfolio",
         title: "Personal Portfolio - React & Tailwind CSS",
-        description: "My personal portfolio, meticulously crafted with React and Tailwind CSS. Showcases my diverse projects, technical skills, and professional journey in a modern and responsive design.",
+        description: "Meticulously crafted my personal portfolio using React and Tailwind CSS. This platform effectively showcases my diverse projects, technical skills, and professional journey through a modern, responsive, and highly optimized design.",
         category: "web",
         tech: [
             {name: "React", icon: FaReact},
@@ -46,46 +91,37 @@ export const projectsData: Project[] = [
             {name: "Tailwind CSS", icon: SiTailwindcss},
         ],
         repoGit: "https://github.com/wistantkode/my-dev-portfolio.git",
-        liveUrl: "#",
+        liveUrl: "#", // Placeholder
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}portfolio-img.png`,
     },
     {
-        id: "4",
-        title: "Plantex",
-        description: "Plantex is a showcase website for plants, built to be fully \n" +
-            "                            responsive and easy to customize. It includes sections for products,\n" +
-            "                            FAQs, contact, and social links. The design is minimalist and uses\n" +
-            "                            Google Fonts (Outfit) and Remix Icons..",
+        id: "proj-plantex",
+        title: "Plantex - Modern Plant Showcase Website",
+        description: "Developed a visually appealing showcase website for plants, designed to be fully responsive and easily customizable. Includes sections for products, FAQs, contact information, and social links, featuring a minimalist design with Google Fonts (Outfit) and Remix Icons.",
         category: "web",
         tech: [
             {name: "HTML5", icon: SiHtml5},
             {name: "JavaScript", icon: SiJavascript},
             {name: "Tailwind CSS", icon: SiTailwindcss},
             {name: "CSS3", icon: SiCss3},
-
         ],
-        repoGit: "https://github.com/wistantkode/my-dev-portfolio.git",
-        liveUrl: "#",
+        repoGit: "https://github.com/wistantkode/Plantex-Website", // Placeholder
+        liveUrl: "#", // Placeholder
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}plantex.png`,
     },
     {
-        id: "5",
-        title: "Plantex",
-        description: "Chick Food is a front-end project for a fictional fried\n" +
-            "                            chicken restaurant. This fully responsive website provides\n" +
-            "                            an engaging user experience with smooth animations and a\n" +
-            "                            clean, modern design. It serves as a great portfolio\n" +
-            "                            piece to showcase skills in HTML, CSS, and JavaScript. ",
+        id: "proj-chickfood-v2",
+        title: "Chick Food - Responsive Restaurant Frontend (V2)",
+        description: "An enhanced responsive frontend for a fictional fried chicken restaurant, delivering an engaging user experience with smooth animations and a clean, modern design. A robust portfolio piece demonstrating advanced HTML, CSS, and JavaScript skills.",
         category: "web",
         tech: [
             {name: "HTML5", icon: SiHtml5},
             {name: "JavaScript", icon: SiJavascript},
             {name: "Tailwind CSS", icon: SiTailwindcss},
             {name: "CSS3", icon: SiCss3},
-
         ],
-        repoGit: "https://github.com/wistantkode/my-dev-portfolio",
-        liveUrl: "#",
+        repoGit: "https://github.com/wistantkode/ChickFood-Frontend-V2", // Placeholder
+        liveUrl: "#", // Placeholder
         imageUrl: `${PROJECT_IMAGE_BASE_PATH}chickfood.png`,
     },
 ];
