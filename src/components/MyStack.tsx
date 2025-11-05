@@ -31,84 +31,84 @@ const technologies: Technology[] = [
         name: "React",
         icon: SiReact,
         color: "#61DAFB",
-        proficiency: 60,
+        proficiency: 85,
         size: 'large',
-        animate: {y: [0, 10, 0], rotate: [0, -5, 5, 0]},
-        transition: {duration: 3.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.2},
-        whileHover: {scale: 1.15, rotate: -10}
+        animate: {y: [0, 20, 0], rotate: [0, -10, 10, 0]},
+        transition: {duration: 3.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.2},
+        whileHover: {scale: 1.2, rotate: -15, zIndex: 10}
     },
     {
         name: "Next.js",
         icon: RiNextjsFill,
         color: "#FFFFFF",
-        proficiency: 50,
+        proficiency: 80,
         size: 'medium',
-        animate: {x: [0, 10, 0], rotate: [0, -8, 8, 0]},
-        transition: {duration: 3.4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.6},
-        whileHover: {scale: 1.15, rotate: -12}
+        animate: {x: [0, 20, 0], rotate: [0, -12, 12, 0]},
+        transition: {duration: 4.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.6},
+        whileHover: {scale: 1.2, rotate: -18, zIndex: 10}
     },
     {
         name: "TypeScript",
         icon: SiTypescript,
         color: "#3178C6",
-        proficiency: 50,
-        animate: {y: [0, -8, 0], rotate: [0, 4, -4, 0]},
-        transition: {duration: 3.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.8},
-        whileHover: {scale: 1.15, rotate: 8}
+        proficiency: 88,
+        animate: {y: [0, -15, 0], rotate: [0, 8, -8, 0]},
+        transition: {duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.8},
+        whileHover: {scale: 1.2, rotate: 12, zIndex: 10}
     },
     {
         name: "Git",
         icon: SiGit,
         color: "#F05032",
-        proficiency: 95,
-        animate: {y: [0, 8, 0], rotate: [0, -4, 4, 0]},
-        transition: {duration: 3.6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.0},
-        whileHover: {scale: 1.15, rotate: -8}
+        proficiency: 92,
+        animate: {y: [0, 15, 0], rotate: [0, -8, 8, 0]},
+        transition: {duration: 3.9, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.0},
+        whileHover: {scale: 1.2, rotate: -12, zIndex: 10}
     },
     {
         name: "GitHub",
         icon: SiGithub,
         color: "#FFFFFF",
         proficiency: 90,
-        animate: {x: [0, -8, 0], rotate: [0, 6, -6, 0]},
-        transition: {duration: 3.1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.2},
-        whileHover: {scale: 1.15, rotate: 10}
+        animate: {x: [0, -15, 0], rotate: [0, 10, -10, 0]},
+        transition: {duration: 3.6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.2},
+        whileHover: {scale: 1.2, rotate: 15, zIndex: 10}
     },
     {
         name: "NestJS",
         icon: SiNestjs,
         color: "#E0234E",
-        proficiency: 80,
-        animate: {x: [0, 8, 0], rotate: [0, -6, 6, 0]},
-        transition: {duration: 3.7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.4},
-        whileHover: {scale: 1.15, rotate: -10}
+        proficiency: 75,
+        animate: {x: [0, 15, 0], rotate: [0, -10, 10, 0]},
+        transition: {duration: 4.1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.4},
+        whileHover: {scale: 1.2, rotate: -15, zIndex: 10}
     },
     {
         name: "Microservices",
         icon: SiMicrogenetics,
         color: "#FF6B6B",
-        proficiency: 40,
-        animate: {y: [0, -12, 0], rotate: [0, 7, -7, 0]},
-        transition: {duration: 3.0, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.6},
-        whileHover: {scale: 1.15, rotate: 11}
+        proficiency: 85,
+        animate: {y: [0, -18, 0], rotate: [0, 14, -14, 0]},
+        transition: {duration: 3.7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.6},
+        whileHover: {scale: 1.2, rotate: 20, zIndex: 10}
     },
     {
         name: "PostgreSQL",
         icon: SiPostgresql,
         color: "#336791",
-        proficiency: 50,
-        animate: {y: [0, 12, 0], rotate: [0, -7, 7, 0]},
-        transition: {duration: 3.3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.8},
-        whileHover: {scale: 1.15, rotate: -11}
+        proficiency: 80,
+        animate: {y: [0, 18, 0], rotate: [0, -14, 14, 0]},
+        transition: {duration: 4.3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.8},
+        whileHover: {scale: 1.2, rotate: -20, zIndex: 10}
     },
     {
         name: "Trello",
         icon: SiTrello,
         color: "#0079BF",
-        proficiency: 100,
-        animate: {x: [0, -12, 0], rotate: [0, 9, -9, 0]},
-        transition: {duration: 2.9, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.0},
-        whileHover: {scale: 1.15, rotate: 13}
+        proficiency: 70,
+        animate: {x: [0, -18, 0], rotate: [0, 16, -16, 0]},
+        transition: {duration: 3.9, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2.0},
+        whileHover: {scale: 1.2, rotate: 22, zIndex: 10}
     },
 ];
 // --- End Data Configuration --- //
@@ -166,6 +166,7 @@ const MyStack = () => {
                         return (
                             <motion.div
                                 key={tech.name}
+                                // Removed itemVariants here to avoid conflict
                                 animate={tech.animate} // Apply continuous animation from data
                                 transition={tech.transition} // Apply continuous transition from data
                                 whileHover={tech.whileHover || {
