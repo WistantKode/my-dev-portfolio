@@ -7,7 +7,6 @@ import MyExperience from "@/components/MyExperience.tsx";
 import MyStack from "@/components/MyStack.tsx";
 import CTA from "@/components/CTA.tsx";
 import ContactForm from "@/components/ContactForm.tsx";
-import ClientTestimonials from "@/components/home/ClientTestimonials.tsx"; // Import the new component
 
 const Home = () => {
     return (
@@ -22,7 +21,6 @@ const Home = () => {
             <ServicesSection/>
             <MyStack />
             <MyExperience/>
-            <ClientTestimonials /> {/* Integrate the new component here */}
             <ContactForm/>
             {/*<CTA/>*/}
             {/*<div>*/}
