@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/layout/layout';
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Tag, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// Re-define BlogPost interface for clarity in this file
+// Define BlogPost interface for robust data structure
 interface BlogPost {
   id: number;
   title: string;
@@ -14,8 +15,9 @@ interface BlogPost {
   category: string;
   author: string;
   publishedAt: string;
-  image: string; // URL to the main image
+  image?: string; // Optional image
   tags: string[];
+  readingTime?: number; // Estimated reading time in minutes
 }
 
 // Mock data (should be imported from a central source later)
@@ -38,7 +40,8 @@ const mockPosts: BlogPost[] = [
     author: "Wistant Kode",
     publishedAt: "2024-01-15",
     image: "/blog-post-1.jpg",
-    tags: ["React", "Web Development", "Trends", "Architecture", "Performance", "DevSecOps"]
+    tags: ["React", "Web Development", "Trends", "Architecture", "Performance", "DevSecOps"],
+    readingTime: 7,
   },
   {
     id: 2,
@@ -57,7 +60,8 @@ const mockPosts: BlogPost[] = [
     author: "Wistant Kode",
     publishedAt: "2024-01-10",
     image: "/blog-post-2.jpg",
-    tags: ["UI/UX", "Design", "User Experience", "Frontend", "Engineering", "Accessibility"]
+    tags: ["UI/UX", "Design", "User Experience", "Frontend", "Engineering", "Accessibility"],
+    readingTime: 5,
   },
   {
     id: 3,
@@ -76,18 +80,35 @@ const mockPosts: BlogPost[] = [
     author: "Wistant Kode",
     publishedAt: "2024-01-05",
     image: "/blog-post-3.jpg",
-    tags: ["Performance", "Optimization", "Web", "Speed", "SEO", "Frontend", "Backend"]
+    tags: ["Performance", "Optimization", "Web", "Speed", "SEO", "Frontend", "Backend"],
+    readingTime: 8,
   }
 ];
 
 const BlogPostDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [tableOfContents, setTableOfContents] = useState<{ id: string; text: string; level: number }[]>([]);
 
   useEffect(() => {
     const foundPost = mockPosts.find(p => p.id === Number(id));
     setPost(foundPost || null);
   }, [id]);
+
+  useEffect(() => {
+    if (post && contentRef.current) {
+      const headings = contentRef.current.querySelectorAll('h2, h3');
+      const toc = Array.from(headings).map((heading, index) => {
+        const level = parseInt(heading.tagName.substring(1)); // H2 -> 2, H3 -> 3
+        const text = heading.textContent || '';
+        const headingId = heading.id || `section-${index}`;
+        heading.id = headingId; // Ensure all headings have an ID
+        return { id: headingId, text, level };
+      });
+      setTableOfContents(toc);
+    }
+  }, [post]);
 
   if (!post) {
     return (
@@ -120,50 +141,121 @@ const BlogPostDetail = () => {
       lang="en"
     >
       <section className="py-20 bg-background min-h-screen">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <Link to="/blog" className="inline-flex items-center text-primary hover:text-primary-glow transition-colors mb-8">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Blog
-          </Link>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+            {/* Main Content Area */}
+            <div className="lg:col-span-3">
+              <Link to="/blog" className="inline-flex items-center text-primary hover:text-primary-glow transition-colors mb-8">
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Back to Blog
+              </Link>
 
-          {post.image && (
-            <div className="w-full h-80 overflow-hidden rounded-lg mb-8 shadow-lg">
-              <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-            </div>
-          )}
+              {post.image && (
+                <div className="w-full h-80 overflow-hidden rounded-lg mb-8 shadow-lg">
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                </div>
+              )}
 
-          <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 leading-tight">
-            {post.title}
-          </h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 leading-tight">
+                {post.title}
+              </h1>
 
-          <div className="flex items-center text-text-secondary text-sm mb-8 space-x-4">
-            <div className="flex items-center gap-1">
-              <User className="w-4 h-4" />
-              <span>{post.author}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <span>{formatDate(post.publishedAt)}</span>
-            </div>
-            <Badge variant="secondary" className="text-xs">
-              {post.category}
-            </Badge>
-          </div>
-
-          <div 
-            className="prose prose-invert max-w-none text-text-secondary leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-10 border-t border-border pt-6">
-              {post.tags.map((tag, index) => (
-                <Badge key={index} variant="outline" className="text-xs px-3 py-1">
-                  #{tag}
+              <div className="flex flex-wrap items-center text-text-secondary text-sm mb-8 space-x-4">
+                <div className="flex items-center gap-1">
+                  <User className="w-4 h-4" />
+                  <span>{post.author}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  <span>{formatDate(post.publishedAt)}</span>
+                </div>
+                {post.readingTime && (
+                  <div className="flex items-center gap-1">
+                    <BookOpen className="w-4 h-4" />
+                    <span>{post.readingTime} min read</span>
+                  </div>
+                )}
+                <Badge variant="secondary" className="text-xs">
+                  {post.category}
                 </Badge>
-              ))}
+              </div>
+
+              <div 
+                className="prose prose-invert max-w-none text-text-secondary leading-relaxed"
+                ref={contentRef} // Attach ref here
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-10 border-t border-border pt-6">
+                  {post.tags.map((tag, index) => (
+                    <Badge key={index} variant="outline" className="text-xs px-3 py-1">
+                      #{tag}
+                    </Badge>
+                  ))}
+                </div>
+              )}
+
+              {/* Author Bio Section */}
+              <Card className="bg-gradient-card border border-border-light mt-10 p-6">
+                <CardHeader className="p-0 mb-4">
+                  <CardTitle className="text-xl font-bold text-text-primary">About the Author</CardTitle>
+                </CardHeader>
+                <CardContent className="p-0 flex items-center">
+                  <img 
+                    src="/path/to/wistant-avatar.jpg" // Replace with actual avatar path
+                    alt="Wistant Kode Avatar"
+                    className="w-16 h-16 rounded-full mr-4 border-2 border-primary"
+                  />
+                  <div>
+                    <p className="font-semibold text-text-primary">Wistant Kode</p>
+                    <p className="text-sm text-text-secondary">DevSecOps Practicer & Software Engineer</p>
+                    <p className="text-sm text-text-muted mt-1">Wistant Kode is passionate about building secure, scalable, and high-performance software solutions. With expertise in Java/Spring Boot, React/Next.js, Cloud, Automation, and Cybersecurity, Wistant aims to drive technological innovation.</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Related Posts Section (Placeholder) */}
+              <div className="mt-10">
+                <h2 className="text-2xl font-bold text-text-primary mb-6">Related Articles</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Placeholder for related posts - will be dynamic later */}
+                  <Card className="bg-gradient-card border border-border-light p-4">
+                    <h3 className="font-semibold text-text-primary">Future of Frontend Frameworks</h3>
+                    <p className="text-sm text-text-secondary">Explore emerging trends in UI development.</p>
+                    <Link to="/blog/1" className="text-primary text-sm mt-2 inline-block">Read More &rarr;</Link>
+                  </Card>
+                  <Card className="bg-gradient-card border border-border-light p-4">
+                    <h3 className="font-semibold text-text-primary">Advanced Security Protocols</h3>
+                    <p className="text-sm text-text-secondary">Deep dive into modern cybersecurity practices.</p>
+                    <Link to="/blog/1" className="text-primary text-sm mt-2 inline-block">Read More &rarr;</Link>
+                  </Card>
+                </div>
+              </div>
             </div>
-          )}
+
+            {/* Sidebar / Table of Contents */}
+            <div className="lg:col-span-1">
+              {tableOfContents.length > 0 && (
+                <Card className="bg-gradient-card border border-border-light p-6 sticky top-24">
+                  <CardHeader className="p-0 mb-4">
+                    <CardTitle className="text-xl font-bold text-text-primary">Table of Contents</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0 space-y-2">
+                    {tableOfContents.map((item) => (
+                      <a 
+                        key={item.id} 
+                        href={`#${item.id}`}
+                        className={`block text-text-secondary hover:text-primary transition-colors ${item.level === 3 ? 'ml-4 text-sm' : 'text-base'}`}
+                      >
+                        {item.text}
+                      </a>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          </div>
         </div>
       </section>
     </Layout>
