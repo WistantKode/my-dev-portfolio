@@ -3,15 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home, Briefcase, BookOpen, Mail, Code } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./theme-toggle"; // Import the ThemeToggle component
+import { motion, AnimatePresence } from "framer-motion";
 
 // --- Data Configuration --- //
 const navItems = [
-  { href: "/", label: "Home", icon: Home, isCta: false },
-  { href: "/projects", label: "Projects", icon: Code, isCta: false },
-  { href: "/services", label: "Services", icon: Briefcase, isCta: false },
-  { href: "/blog", label: "Blog", icon: BookOpen, isCta: false },
-  { href: "/contact", label: "Contact", icon: Mail, isCta: true }, // Mark Contact as CTA
+  { href: "/", label: "Home", icon: Home },
+  { href: "/projects", label: "Projects", icon: Code },
+  { href: "/services", label: "Services", icon: Briefcase },
+  { href: "/blog", label: "Blog", icon: BookOpen },
+  { href: "/contact", label: "Contact", icon: Mail },
 ];
 
 // --- Main Component --- //
@@ -20,7 +20,6 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // Handle scroll to change header style
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -29,7 +28,6 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
@@ -56,57 +54,65 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
-              item.isCta ? (
-                <Button key={item.href} asChild className="bg-gradient-primary hover:opacity-90 border-0 shadow-primary">
-                  <Link to={item.href}>{item.label}</Link>
-                </Button>
-              ) : (
-                <Button key={item.href} asChild variant="ghost" className={cn("text-text-secondary", isActive(item.href) && "bg-secondary text-text-primary")}>
-                  <Link to={item.href}>{item.label}</Link>
-                </Button>
-              )
+              <Button key={item.href} asChild variant="ghost" className={cn("text-text-secondary", isActive(item.href) && "bg-secondary text-text-primary")}>
+                <Link to={item.href}>{item.label}</Link>
+              </Button>
             ))}
-            <ThemeToggle /> {/* Theme Toggle for Desktop */}
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle /> {/* Theme Toggle for Mobile */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)} // Toggle isOpen
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <div className="md:hidden">
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)}>
+              <Menu className="w-6 h-6" />
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation (Dropdown) */}
-      {isOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border py-4 absolute top-20 left-0 right-0 shadow-lg">
-          <nav className="flex flex-col items-center space-y-4">
-            {navItems.map((item) => {
-              const Icon = item.icon; 
-              return (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={cn(
-                    "flex items-center gap-3 px-4 py-2 rounded-lg text-lg font-medium text-text-secondary hover:text-primary hover:bg-secondary/50 transition-colors",
-                    isActive(item.href) && "text-primary bg-secondary/30"
-                  )}
-                  onClick={() => setIsOpen(false)} // Close menu on item click
-                >
-                  <Icon className="w-6 h-6" /> 
-                  {item.label}
+      {/* Mobile Navigation (Fullscreen Overlay) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl"
+          >
+            <div className="container mx-auto px-4 h-full">
+              <div className="flex items-center justify-between h-20 border-b border-border">
+                <Link to="/" className="flex items-center space-x-2">
+                  <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center shadow-glow">
+                    <span className="text-primary-foreground font-bold text-lg">WK</span>
+                  </div>
                 </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
+                <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                  <X className="w-6 h-6" />
+                </Button>
+              </div>
+              <nav className="flex flex-col items-center justify-center h-[calc(100%-5rem)] space-y-6">
+                {navItems.map((item) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + navItems.indexOf(item) * 0.1 }}
+                  >
+                    <Link
+                      to={item.href}
+                      className={cn(
+                        "text-3xl font-medium text-text-secondary hover:text-primary transition-colors",
+                        isActive(item.href) && "text-primary"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
