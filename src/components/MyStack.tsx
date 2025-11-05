@@ -186,7 +186,7 @@ const MyStack = () => {
                                 </p>
                                 {/* Proficiency Indicator */}
                                 <div className="w-full bg-gray-700 rounded-full h-2.5 mb-1">
-                                    {/*// @ts-ignore*/}
+                                    {/*//  @ts-ignore*/}
                                     <Progress value={tech.proficiency} className="h-2.5" indicatorColor="bg-primary"/>
                                 </div>
                                 <p className="text-text-secondary text-xs">{tech.proficiency}% Proficiency</p>
