@@ -5,6 +5,7 @@ import {
     SiNestjs,
     SiPostgresql,
     SiReact,
+    SiSlack,
     SiTrello,
     SiTypescript
 } from "react-icons/si";
@@ -141,6 +142,19 @@ export const technologies: Technology[] = [
         icon: SiTrello,
         color: "#0079BF",
         proficiency: 100,
+        animate: {
+            x: [0, 50, -50, 50],
+            y: [150, 50, -50, 50],
+            rotate: [0, -22, 22, 0]
+        },
+        transition: {duration: 2.25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.45},
+        whileHover: {scale: 1.3, rotate: 28, zIndex: 10}
+    },
+    {
+        name: "Slack",
+        icon: SiSlack,
+        color: "#bfa600",
+        proficiency: 50,
         animate: {
             x: [0, 50, -50, 50],
             y: [150, 50, -50, 50],
